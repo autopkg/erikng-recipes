@@ -23,7 +23,7 @@ class GenymotionURLProvider(Processor):
 		# Genymotion Update API
 		url = 'https://cloud.genymotion.com/launchpad/last_version/mac/x64/'
 		# API requires AJAX / XMLHttpRequest
-		headers = {'X-Requested-With' :'XMLHttpRequest'}
+		headers = {'X-Requested-With': 'XMLHttpRequest', 'User-Agent': 'Safari'}
 		try:
 			request = urllib2.Request(url, headers=headers)
 			response = urllib2.urlopen(request)
