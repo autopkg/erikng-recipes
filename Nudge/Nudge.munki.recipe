@@ -118,6 +118,8 @@
                 <string>%MUNKI_REPO_SUBDIR%</string>
                 <key>version_comparison_key</key>
                 <string>CFBundleVersion</string>
+                <key>minimum_os_version</key>
+                <string>11.0</string>
             </dict>
             <key>Processor</key>
             <string>MunkiImporter</string>
