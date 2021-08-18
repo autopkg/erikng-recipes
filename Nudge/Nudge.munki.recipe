@@ -25,7 +25,7 @@
             <key>category</key>
             <string>Configuration Management</string>
             <key>description</key>
-            <string>Nudge is Swift application for enforcing macOS updates.</string>
+            <string>Nudge is a Swift application for enforcing macOS updates.</string>
             <key>developer</key>
             <string>Erik Gomez</string>
             <key>display_name</key>
