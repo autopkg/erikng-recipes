@@ -15,9 +15,7 @@
         <key>pkginfo</key>
         <dict>
             <key>blocking_applications</key>
-            <array>
-                <string>Nudge</string>
-            </array>
+            <array/>
             <key>catalogs</key>
             <array>
                 <string>testing</string>
