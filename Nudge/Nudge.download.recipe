@@ -67,7 +67,7 @@ i.e.: `-k TYPE=_Suite`</string>
                 <true />
                 <key>expected_authority_names</key>
                 <array>
-                    <string>Developer ID Installer: Clever DevOps Co. (9GQZ7KUFR6)</string>
+                    <string>Developer ID Installer: Mac Admins Open Source (T4SK8ZXCXG)</string>
                     <string>Developer ID Certification Authority</string>
                     <string>Apple Root CA</string>
                 </array>
