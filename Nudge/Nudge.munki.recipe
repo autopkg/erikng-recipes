@@ -69,15 +69,26 @@
                 <string>%found_filename%/Payload</string>
                 <key>destination_path</key>
                 <string>%RECIPE_CACHE_DIR%/payload/Applications/Utilities</string>
+                <key>purge_destination</key>
+                <true/>
             </dict>
             <key>Processor</key>
             <string>PkgPayloadUnpacker</string>
         </dict>
         <dict>
+            <key>Processor</key>
+            <string>FileFinder</string>
+            <key>Arguments</key>
+            <dict>
+                <key>pattern</key>
+                <string>%RECIPE_CACHE_DIR%/payload/**/Nudge.app/Contents/Info.plist</string>
+            </dict>
+        </dict>
+        <dict>
             <key>Arguments</key>
             <dict>
                 <key>input_plist_path</key>
-                <string>%RECIPE_CACHE_DIR%/payload/Applications/Utilities/Nudge.app/Contents/Info.plist</string>
+                <string>%found_filename%</string>
             </dict>
             <key>Processor</key>
             <string>Versioner</string>
