@@ -111,7 +111,7 @@
                 <key>additional_pkginfo</key>
                 <dict>
                     <key>minimum_os_version</key>
-                    <string>11.0</string>
+                    <string>12.0</string>
                 </dict>
             </dict>
             <key>Processor</key>
