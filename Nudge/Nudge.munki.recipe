@@ -5,13 +5,17 @@
     <key>Description</key>
     <string>Downloads latest Nudge release and imports into Munki.
 
-Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_version via MunkiInstallsItemsCreator. This requires a minimum AutoPkg version of 2.7 please update if you're not already running it.</string>
+Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_version via MunkiInstallsItemsCreator. This requires a minimum AutoPkg version of 2.7 please update if you're not already running it.
+
+Set the ESSENTIALS_UNPACK_PATH variable to "/Applications/Utilities" when downloading the Essentials pkg. Leave empty for all others.</string>
     <key>Identifier</key>
     <string>com.github.erikng.munki.Nudge</string>
     <key>Input</key>
     <dict>
         <key>DERIVE_MIN_OS</key>
         <string>YES</string>
+        <key>ESSENTIALS_UNPACK_PATH</key>
+        <string></string>
         <key>NAME</key>
         <string>Nudge</string>
         <key>MUNKI_REPO_SUBDIR</key>
@@ -113,7 +117,7 @@ Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_versi
             <key>Arguments</key>
             <dict>
                 <key>faux_root</key>
-                <string>%RECIPE_CACHE_DIR%/payload</string>
+                <string>%RECIPE_CACHE_DIR%/payload%ESSENTIALS_UNPACK_PATH%</string>
                 <key>derive_minimum_os_version</key>
                 <string>%DERIVE_MIN_OS%</string>
                 <key>installs_item_paths</key>
@@ -140,18 +144,6 @@ Set the DERIVE_MIN_OS variable to a non-empty string to set the minimum_os_versi
             </dict>
             <key>Processor</key>
             <string>MunkiImporter</string>
-        </dict>
-        <dict>
-            <key>Arguments</key>
-            <dict>
-                <key>path_list</key>
-                <array>
-                    <string>%RECIPE_CACHE_DIR%/unpack</string>
-                    <string>%RECIPE_CACHE_DIR%/payload</string>
-                </array>
-            </dict>
-            <key>Processor</key>
-            <string>PathDeleter</string>
         </dict>
     </array>
 </dict>
