@@ -7,14 +7,21 @@ __all__ = ["PathDeleter"]
 class PathDeleter(Processor):
     description = "Deletes files/folders from a list."
     input_variables = {
-        "path_list": {
+        "PATH": {
             "required": True,
             "description": "List of paths to delete"
         }
     }
 
+    output_variables = {
+        "pathdeleter_summary_result": {
+            "description": "PathDeleter report data."
+        },
+    }
+
     def main(self):
-        for path in self.env.get("path_list", []):
+        path = self.env.get("PATH", None)
+        if path:
             if os.path.exists(path):
                 print(f"Deleting {path}")
                 try:
@@ -26,3 +33,8 @@ class PathDeleter(Processor):
                     raise ProcessorError(f"Failed to delete {path}: {e}")
             else:
                 print(f"Path does not exist: {path}")
+
+
+if __name__ == "__main__":
+    PROCESSOR = PathDeleter()
+    PROCESSOR.execute_shell()
