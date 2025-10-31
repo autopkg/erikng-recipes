@@ -2,11 +2,18 @@ from autopkglib import Processor, ProcessorError
 import os
 import shutil
 
-__all__ = ["PathDeleter"]
+__all__ = ["PathDeleterAlt"]
 
-class PathDeleter(Processor):
+class PathDeleterAlt(Processor):
     description = "Deletes a file or folder."
     input_variables = {
+        "RECREATE_PATH": {
+            "default": True,
+            "required": False,
+            "description": (
+                "Recreate the path if deleted."
+            ),
+        },
         "PATH": {
             "required": True,
             "description": "path to delete"
@@ -14,8 +21,8 @@ class PathDeleter(Processor):
     }
 
     output_variables = {
-        "pathdeleter_summary_result": {
-            "description": "PathDeleter report data."
+        "pathdeleteralt_summary_result": {
+            "description": "PathDeleteAlt report data."
         },
     }
 
@@ -23,18 +30,21 @@ class PathDeleter(Processor):
         path = self.env.get("PATH", None)
         if path:
             if os.path.exists(path):
-                print(f"Deleting {path}")
+                self.output(f"Deleting {path}")
                 try:
                     if os.path.isdir(path):
                         shutil.rmtree(path)
                     else:
                         os.remove(path)
+                    if self.env.get("RECREATE_PATH"):
+                        self.output(f"Recreating {path}")
+                        os.mkdir(path)
                 except Exception as e:
                     raise ProcessorError(f"Failed to delete {path}: {e}")
             else:
-                print(f"Path does not exist: {path}")
+                self.output(f"Path does not exist: {path}")
 
 
 if __name__ == "__main__":
-    PROCESSOR = PathDeleter()
+    PROCESSOR = PathDeleterAlt()
     PROCESSOR.execute_shell()
