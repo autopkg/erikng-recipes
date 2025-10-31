@@ -5,11 +5,11 @@ import shutil
 __all__ = ["PathDeleter"]
 
 class PathDeleter(Processor):
-    description = "Deletes files/folders from a list."
+    description = "Deletes a file or folder."
     input_variables = {
         "PATH": {
             "required": True,
-            "description": "List of paths to delete"
+            "description": "path to delete"
         }
     }
 
