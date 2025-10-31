@@ -1,6 +1,0 @@
-Description: A stub recipe used to reference PathDeleterAlt.py as a shared processor in other recipes.
-Identifier: com.github.erikng.pathdeleteralt
-MinimumVersion: "2.3"
-
-Input: {}
-Process: []

@@ -1,0 +1,6 @@
+Description: A stub recipe used to reference PathDeleter.py as a shared processor in other recipes.
+Identifier: com.github.erikng.pathdeleter
+MinimumVersion: "2.3"
+
+Input: {}
+Process: []
