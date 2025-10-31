@@ -2,9 +2,9 @@ from autopkglib import Processor, ProcessorError
 import os
 import shutil
 
-__all__ = ["PathDeleter"]
+__all__ = ["PathDeleterAlt"]
 
-class PathDeleter(Processor):
+class PathDeleterAlt(Processor):
     description = "Deletes files/folders from a list."
     input_variables = {
         "path_list": {
